@@ -1,4 +1,8 @@
-<x-layouts.public :title="$album->title">
+@php
+    $shareMeta = \App\Support\ShareMetadata::forGalleryAlbum($album, $siteSetting);
+@endphp
+
+<x-layouts.public :title="$album->title" :meta="$shareMeta">
     <div class="relative overflow-x-hidden">
         <x-public.header :site-setting="$siteSetting" />
 

@@ -1,4 +1,8 @@
-<x-layouts.public :title="$page->title">
+@php
+    $shareMeta = \App\Support\ShareMetadata::forPage($page, $siteSetting);
+@endphp
+
+<x-layouts.public :title="$page->title" :meta="$shareMeta">
     @php
         $featuredImageUrl = filled($page->featured_image_path)
             ? asset('storage/' . $page->featured_image_path)

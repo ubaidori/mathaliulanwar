@@ -131,6 +131,15 @@ test('public gallery listing and detail pages can be viewed', function () {
         ->assertSee('Kegiatan Asrama dan Pembinaan Harian');
 });
 
+test('public virtual tour page uses the shared public header layout', function () {
+    $this->get(route('virtual-tour.index'))
+        ->assertOk()
+        ->assertSee('Virtual Tour PP. Mathali\'ul Anwar')
+        ->assertSee('Home')
+        ->assertSee('Kontak')
+        ->assertSee('virtual-tour/index.htm');
+});
+
 test('public pages render storage media urls when media paths exist', function () {
     SiteSetting::query()->firstOrFail()->update([
         'logo_path' => 'branding/logo.png',
@@ -180,6 +189,49 @@ test('public pages render storage media urls when media paths exist', function (
         ->assertOk()
         ->assertSee('storage/gallery/cover.jpg')
         ->assertSee('storage/gallery/kegiatan-asrama-1.jpg');
+});
+
+test('detail public pages expose share metadata using content images instead of the site logo', function () {
+    SiteSetting::query()->firstOrFail()->update([
+        'logo_path' => 'branding/logo.png',
+        'hero_fallback_image_path' => 'hero/fallback.jpg',
+    ]);
+
+    Page::query()->where('slug', 'profil')->firstOrFail()->update([
+        'featured_image_path' => 'pages/profil-share.jpg',
+    ]);
+
+    Post::query()->where('slug', 'peluncuran-website-profil-pesantren')->firstOrFail()->update([
+        'featured_image_path' => 'posts/berita-share.jpg',
+    ]);
+
+    StudentWork::query()->where('slug', 'esai-refleksi-kehidupan-santri')->firstOrFail()->update([
+        'featured_image_path' => 'student-works/karya-share.jpg',
+    ]);
+
+    GalleryAlbum::query()->where('slug', 'kegiatan-asrama')->firstOrFail()->update([
+        'cover_image_path' => 'gallery/cover-share.jpg',
+    ]);
+
+    $this->get(route('berita.show', 'peluncuran-website-profil-pesantren'))
+        ->assertOk()
+        ->assertSee('<meta property="og:image" content="'.asset('storage/posts/berita-share.jpg').'" />', false)
+        ->assertDontSee('branding/logo.png');
+
+    $this->get(route('karya-santri.show', 'esai-refleksi-kehidupan-santri'))
+        ->assertOk()
+        ->assertSee('<meta property="og:image" content="'.asset('storage/student-works/karya-share.jpg').'" />', false)
+        ->assertDontSee('branding/logo.png');
+
+    $this->get(route('galeri.show', 'kegiatan-asrama'))
+        ->assertOk()
+        ->assertSee('<meta property="og:image" content="'.asset('storage/gallery/cover-share.jpg').'" />', false)
+        ->assertDontSee('branding/logo.png');
+
+    $this->get(route('profil.show'))
+        ->assertOk()
+        ->assertSee('<meta property="og:image" content="'.asset('storage/pages/profil-share.jpg').'" />', false)
+        ->assertDontSee('branding/logo.png');
 });
 
 test('public pages render stored rich text with paragraphs', function () {

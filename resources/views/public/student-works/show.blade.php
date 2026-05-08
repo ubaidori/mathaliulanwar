@@ -1,4 +1,8 @@
-<x-layouts.public :title="$studentWork->title">
+@php
+    $shareMeta = \App\Support\ShareMetadata::forStudentWork($studentWork, $siteSetting);
+@endphp
+
+<x-layouts.public :title="$studentWork->title" :meta="$shareMeta">
     @php
         $featuredImageUrl = filled($studentWork->featured_image_path) ? asset('storage/'.$studentWork->featured_image_path) : null;
         $attachmentUrl = filled($studentWork->attachment_path) ? asset('storage/'.$studentWork->attachment_path) : null;

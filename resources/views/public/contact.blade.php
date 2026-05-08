@@ -21,7 +21,7 @@
 
                 <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                     <!-- Ketua Pondok -->
-                    <a href="https://wa.me/6285961480686"
+                    <a href="https://wa.me/6285961480686?text=Assalamu'alaikum%0AUst.%20Moh.%20Jailani"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="group relative overflow-hidden rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-amber-200/50">
@@ -55,7 +55,7 @@
                     </a>
 
                     <!-- Sekretaris -->
-                    <a href="https://wa.me/6282245430035"
+                    <a href="https://wa.me/6282245430035?text=Assalamu'alaikum%0AUst.%20Sauqi%20Fauzan%20Adhim"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="group relative overflow-hidden rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-amber-200/50">
@@ -89,7 +89,7 @@
                     </a>
 
                     <!-- Bendahara -->
-                    <a href="https://wa.me/6287842954564"
+                    <a href="https://wa.me/6287842954564?text=Assalamu'alaikum%0AUst.%20Fathor%20Rozi"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="group relative overflow-hidden rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-amber-200/50">
@@ -123,7 +123,7 @@
                     </a>
 
                     <!-- Pendidikan -->
-                    <a href="https://wa.me/6285967074478"
+                    <a href="https://wa.me/6285967074478?text=Assalamu'alaikum%0AUst.%20Khoidil%20Awwali"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="group relative overflow-hidden rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-amber-200/50">
@@ -157,7 +157,7 @@
                     </a>
 
                     <!-- Keamanan -->
-                    <a href="https://wa.me/6287854750868"
+                    <a href="https://wa.me/6287854750868?text=Assalamu'alaikum%0AUst.%20Ahmad%20Zaidi"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="group relative overflow-hidden rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-amber-200/50">
@@ -191,7 +191,7 @@
                     </a>
 
                     <!-- Kesehatan -->
-                    <a href="https://wa.me/6287881069746"
+                    <a href="https://wa.me/6287881069746?text=Assalamu'alaikum%0AUst.%20Khairul%20Musthafa"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="group relative overflow-hidden rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-amber-200/50">

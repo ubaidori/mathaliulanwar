@@ -5,6 +5,40 @@
     {{ filled($title ?? null) ? $title.' - '.config('app.name', 'PPMA') : config('app.name', 'PPMA') }}
 </title>
 
+@php
+    $meta = $meta ?? [];
+    $metaTitle = $meta['title'] ?? (filled($title ?? null) ? $title.' - '.config('app.name', 'PPMA') : config('app.name', 'PPMA'));
+    $metaDescription = $meta['description'] ?? null;
+    $metaUrl = $meta['url'] ?? url()->current();
+    $metaType = $meta['type'] ?? 'website';
+    $metaImage = $meta['image'] ?? null;
+@endphp
+
+@if (filled($metaDescription))
+    <meta name="description" content="{{ $metaDescription }}" />
+@endif
+
+<link rel="canonical" href="{{ $metaUrl }}" />
+<meta property="og:site_name" content="{{ config('app.name', 'PPMA') }}" />
+<meta property="og:title" content="{{ $metaTitle }}" />
+<meta property="og:url" content="{{ $metaUrl }}" />
+<meta property="og:type" content="{{ $metaType }}" />
+
+@if (filled($metaDescription))
+    <meta property="og:description" content="{{ $metaDescription }}" />
+    <meta name="twitter:description" content="{{ $metaDescription }}" />
+@endif
+
+@if (filled($metaImage))
+    <meta property="og:image" content="{{ $metaImage }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="{{ $metaImage }}" />
+@else
+    <meta name="twitter:card" content="summary" />
+@endif
+
+<meta name="twitter:title" content="{{ $metaTitle }}" />
+
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
