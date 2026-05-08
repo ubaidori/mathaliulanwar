@@ -1,0 +1,119 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-zinc-50: #fafafa;
+    --color-zinc-100: #f5f5f5;
+    --color-zinc-200: #e5e5e5;
+    --color-zinc-300: #d4d4d4;
+    --color-zinc-400: #a3a3a3;
+    --color-zinc-500: #737373;
+    --color-zinc-600: #525252;
+    --color-zinc-700: #404040;
+    --color-zinc-800: #262626;
+    --color-zinc-900: #171717;
+    --color-zinc-950: #0a0a0a;
+
+    --color-accent: var(--color-neutral-800);
+    --color-accent-content: var(--color-neutral-800);
+    --color-accent-foreground: var(--color-white);
+}
+
+@layer theme {
+    .dark {
+        --color-accent: var(--color-white);
+        --color-accent-content: var(--color-white);
+        --color-accent-foreground: var(--color-neutral-800);
+    }
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+[data-flux-field]:not(ui-radio, ui-checkbox) {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply  !mb-0 !leading-tight;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+}
+
+.rich-content:empty::before {
+    content: 'Mulai tulis konten di sini...';
+    @apply text-zinc-400 dark:text-zinc-500;
+}
+
+.rich-content > :first-child {
+    @apply mt-0;
+}
+
+.rich-content > :last-child {
+    @apply mb-0;
+}
+
+.rich-content p {
+    @apply my-4 leading-8;
+}
+
+.rich-content h2 {
+    @apply mt-8 mb-4 text-3xl font-semibold text-zinc-950 dark:text-white;
+}
+
+.rich-content h3 {
+    @apply mt-7 mb-3 text-2xl font-semibold text-zinc-950 dark:text-white;
+}
+
+.rich-content h4 {
+    @apply mt-6 mb-3 text-xl font-semibold text-zinc-950 dark:text-white;
+}
+
+.rich-content h5 {
+    @apply mt-5 mb-3 text-lg font-semibold text-zinc-950 dark:text-white;
+}
+
+.rich-content ul {
+    @apply my-5 list-disc space-y-2 pl-6;
+}
+
+.rich-content ol {
+    @apply my-5 list-decimal space-y-2 pl-6;
+}
+
+.rich-content blockquote {
+    @apply my-6 rounded-r-2xl border-l-4 border-emerald-500 bg-emerald-50/70 px-5 py-4 italic text-zinc-700 dark:border-emerald-400 dark:bg-emerald-950/30 dark:text-zinc-200;
+}
+
+.rich-content a {
+    @apply font-medium text-emerald-800 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-700 dark:text-emerald-300 dark:decoration-emerald-700 dark:hover:text-emerald-200;
+}
+
+.rich-content strong {
+    @apply font-semibold text-zinc-950 dark:text-white;
+}
+
+/* \[:where(&)\]:size-4 {
+    @apply size-4;
+} */
